@@ -8,6 +8,8 @@
 
 CCS811 myCCS811(CCS811_ADDR);
 
+String Name;
+
 void setup() {
   // put your setup code here, to run once:
   myCCS811.begin();
@@ -18,10 +20,13 @@ void setup() {
   pinMode(button, INPUT_PULLUP);
   pinMode(GreenLED, OUTPUT);
   pinMode(RedLED, OUTPUT);
+
+  Name = "Transmitter A";
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  Serial.print(Name+",");
   if(digitalRead(button) == HIGH){
     if (myCCS811.dataAvailable())
     {
@@ -46,5 +51,5 @@ void loop() {
     digitalWrite(GreenLED, LOW);
     digitalWrite(RedLED, HIGH);
   }
-  delay(1000); //Wait for next reading
+  delay(10000); //Wait for next reading
 }
