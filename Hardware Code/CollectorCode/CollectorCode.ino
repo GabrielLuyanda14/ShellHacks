@@ -1,8 +1,8 @@
 #include <SparkFunCCS811.h>
 #include <Wire.h>
 
-#define esp 0
-#define debug 0
+#define esp 1
+#define debug 1
 
 #if esp
 #define button 12
@@ -40,8 +40,6 @@ void setup() {
 #endif
   
   Serial.begin(9600);
-  Serial.println("Starting");
-
   pinMode(button, INPUT_PULLUP);
   pinMode(GreenLED, OUTPUT);
   pinMode(RedLED, OUTPUT);
